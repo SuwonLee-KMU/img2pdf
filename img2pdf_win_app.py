@@ -15,9 +15,10 @@ def open():
     ('png files', '*.png'), ('jpg files', '*.jpg'), ('all files', '*.*')))
     pdflist = []
     which_folder = os.getcwd()
-    outfilename = win.filelist[0].split('.')[-2]+'.pdf'
+    outfilename = win.filelist[0]+'.pdf'
     for file in win.filelist:
-        if file.endswith((('.png','.jpg'))):
+        print(file)
+        if file.endswith((('.png','.jpg','.PNG','.JPG'))):
             image_full_directory = os.path.join(which_folder, file)
             image_converted = PIL.Image.open(image_full_directory).convert('RGB')
             pdflist.append(image_converted)
